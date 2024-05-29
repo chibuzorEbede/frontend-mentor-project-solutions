@@ -22,7 +22,7 @@ z-index: 1;
 .top{
     background-image: url('../images/pattern-bg-mobile.png');
     background-size: cover;
-    padding: 3em;
+    padding: 1em;
     height: 30vh;
     position: relative;
     z-index: 2;
@@ -33,6 +33,7 @@ z-index: 1;
     font-weight: 500;
     color: #fff;
     padding-bottom: 1em;
+    padding-top: 1em;
     text-align: center;
 }
 
@@ -126,6 +127,7 @@ color: var(--very-dark-gray);
 
     .top{
     background-image: url('../images/pattern-bg-desktop.png');
+    height: 28vh;
 
     }
 
@@ -147,12 +149,10 @@ color: var(--very-dark-gray);
         text-align: left;
     }
     
-    .top{
-        height: 20vh;
-    }
+  
 
     .bottom{
-        height: calc(100vh - 20vh);
+        height: calc(100vh - 28vh);
     }
     
 }
