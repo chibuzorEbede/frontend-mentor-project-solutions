@@ -23,7 +23,7 @@ z-index: 1;
     background-image: url('../images/pattern-bg-mobile.png');
     background-size: cover;
     padding: 3em;
-    height: 40vh;
+    height: 30vh;
     position: relative;
     z-index: 2;
 }
@@ -80,6 +80,10 @@ input::placeholder{
     flex-shrink: 0;
 }
 
+.search_button:hover, .search_button:focus{
+background: var(--very-dark-gray);
+}
+
 /* ip details  */
 
 .ip_details{
@@ -111,7 +115,7 @@ color: var(--very-dark-gray);
 
 .bottom{
     position: relative;
-    height: calc(100vh - 40vh);
+    height: calc(100vh - 30vh);
     z-index: 1;
     
 }
@@ -128,5 +132,27 @@ color: var(--very-dark-gray);
     .ip_details{
         max-width: 800px;
         margin: auto;
+        flex-direction: row;
+        padding: 2em;
+        gap: 2em;
+        align-items: center;
     }
+
+    .info  {
+        padding-right: 1em;
+        border-right: .1px solid rgba(128, 128, 128, 0.267);
+    }
+
+    .info .title{
+        text-align: left;
+    }
+    
+    .top{
+        height: 20vh;
+    }
+
+    .bottom{
+        height: calc(100vh - 20vh);
+    }
+    
 }
