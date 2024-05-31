@@ -64,7 +64,7 @@ z-index: 1;
     -webkit-appearance: none;
 }
 input::placeholder{
-    font-size: 14px;
+    font-size: 18px;
     color: var(--dark-gray);
 }
 
@@ -135,7 +135,7 @@ text-wrap: nowrap;
     .ip_details{
         margin: auto;
         flex-direction: row;
-        padding: 2em;
+        padding: 3em;
         gap: 2em;
         align-items: center;
     }
@@ -143,6 +143,10 @@ text-wrap: nowrap;
     .info  {
         padding-right: 1em;
         border-right: .1px solid rgba(128, 128, 128, 0.267);
+    }
+
+    .last{
+        border-right: 0px;
     }
 
     .info .title{
@@ -162,8 +166,3 @@ text-wrap: nowrap;
     }
 }
 
-/* @media (min-width:1200px) {
-    .ip_details{
-        max-width: 70%;
-    }
-} */
