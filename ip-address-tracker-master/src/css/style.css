@@ -112,6 +112,7 @@ font-size: 20px;
 font-weight: 500;
 text-transform: capitalize;
 color: var(--very-dark-gray);
+text-wrap: nowrap;
 }
 
 .bottom{
@@ -132,7 +133,6 @@ color: var(--very-dark-gray);
     }
 
     .ip_details{
-        max-width: 800px;
         margin: auto;
         flex-direction: row;
         padding: 2em;
@@ -149,10 +149,21 @@ color: var(--very-dark-gray);
         text-align: left;
     }
     
+    .info .content{
+        text-wrap: wrap;
+    }
   
 
     .bottom{
         height: calc(100vh - 28vh);
     }
-    
+    .ip_details{
+        max-width: 800px;
+    }
 }
+
+/* @media (min-width:1200px) {
+    .ip_details{
+        max-width: 70%;
+    }
+} */

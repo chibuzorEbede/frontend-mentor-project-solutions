@@ -1,12 +1,14 @@
 //initialize map
 var map = L.map("map");
+
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
+
 var myIcon = L.icon({
-  iconUrl: "../src/images/icon-location.svg",
+  iconUrl: "./images/icon-location.svg",
   iconSize: [48, 63],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
@@ -21,23 +23,41 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let inputIP = document.getElementById("input_ip").value;
-  //do some checks here on inputIP
-  !inputIP ? `` : inputIP;
+
   let filledUrl = getApiUrl(inputIP);
   getInitialIPDetails(filledUrl);
 });
 
 //build api url depending on user input
 
-const getApiUrl = (userIP = "") => {
+const getApiUrl = (userQuery) => {
   const apiUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=`;
   const apiKey = `at_2TnyIcaRkIbLWo4GkcQV9pPyjMndR`;
-  const ipAddress = userIP;
-
-  const url = `${apiUrl}${apiKey}&ipAddress=${ipAddress}`;
+  let ipAddress = ``;
+  let domain = ``;
+  if (isIpAddress(userQuery)) {
+    ipAddress = userQuery;
+  } else {
+    userQuery === undefined ? (ipAddress = ``) : (domain = userQuery);
+  }
+  console.log("ip address is:", ipAddress);
+  console.log("domain is:", domain);
+  const url = `${apiUrl}${apiKey}&ipAddress=${ipAddress}&domain=${domain}`;
 
   return url;
 };
+
+//check if input is ip address
+function isIpAddress(input) {
+  const ipv4Regex =
+    /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+  const ipv6Regex =
+    /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]|)[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]|)[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]|)[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]|)[0-9]))$/;
+  const ipRegex = new RegExp(`^(${ipv4Regex.source})|(${ipv6Regex.source})$`);
+  return ipRegex.test(input);
+}
+
+//make api call and populate the app
 
 let url = getApiUrl();
 
