@@ -53,12 +53,12 @@
     <main class="container">
       <section class="top">
         <h1 class="app_title">IP Address Tracker</h1>
-        <div class="search">
+        <form action="#" class="search" name="ip_tracker">
           <input
             class="search_bar"
             type="search"
             name="user_ip"
-            id="user_ip"
+            id="input_ip"
             placeholder="Search for any IP address or domain"
           />
           <button class="search_button" role="button" type="submit">
@@ -68,23 +68,23 @@
               alt="submit button"
             />
           </button>
-        </div>
+        </form>
         <aside class="ip_details">
           <div class="info">
             <p class="title">ip address</p>
-            <p class="content">192.212.174.101</p>
+            <p class="content" id="user_ip">192.212.174.101</p>
           </div>
           <div class="info">
             <p class="title">location</p>
-            <p class="content">brooklyn, NY 10001</p>
+            <p class="content" id="user_location">brooklyn, NY 10001</p>
           </div>
           <div class="info">
             <p class="title">timezone</p>
-            <p class="content">utc-05:00</p>
+            <p class="content" id="user_timezone">utc-05:00</p>
           </div>
           <div class="info">
             <p class="title">isp</p>
-            <p class="content">spacex starlink</p>
+            <p class="content" id="user_isp">spacex starlink</p>
           </div>
         </aside>
       </section>
@@ -100,7 +100,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Chibuzor Ebede</a>.
     </div>
-
-    <script type="module" src="./js/main.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
