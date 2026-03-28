@@ -32,7 +32,7 @@ form.addEventListener("submit", (e) => {
 
 const getApiUrl = (userQuery) => {
   const apiUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=`;
-  const apiKey = `at_2TnyIcaRkIbLWo4GkcQV9pPyjMndR`;
+  const apiKey = `at_1mntJZaNFwriw7lPD0QXvHlVBn2oB`;
   let ipAddress = ``;
   let domain = ``;
   if (isIpAddress(userQuery)) {
